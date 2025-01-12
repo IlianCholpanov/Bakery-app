@@ -1,20 +1,33 @@
-/* eslint-disable react/prop-types */
-function NavBar({ onNavigate }) {
+const Navbar = () => {
   return (
-    <nav className="sticky backdrop-filter backdrop-blur-[10px] absolute-top-[0] left-[0] w-full h-screen translate-x-full flex items-center justify-center [transition:all_0.5s_ease-in]">
-      <ul className="flex items-center gap-[4.8rem]">
-        <li>About us</li>
-        <li>
-          <button
-            onClick={() => onNavigate("orderForm")}
-            className="text-blue-500 hover:text-blue-700 font-semibold"
-          >
-            Order now
-          </button>
-        </li>
-      </ul>
+    <nav className="bg-gray-800 text-white">
+      <div className="container mx-auto flex justify-between items-center p-4">
+        <a href="/" className="text-xl font-bold">
+          MyApp
+        </a>
+        <ul className="hidden md:flex space-x-4">
+          <li>
+            <a href="/" className="hover:text-gray-300">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/about" className="hover:text-gray-300">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact" className="hover:text-gray-300">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <button className="md:hidden text-white hover:text-gray-300">
+          {/* Add hamburger menu icon here */}☰
+        </button>
+      </div>
     </nav>
   );
-}
+};
 
-export default NavBar;
+export default Navbar;

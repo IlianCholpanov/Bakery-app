@@ -1,5 +1,5 @@
 function OrderForm() {
-  return <div>order</div>;
+  return <div className="">order</div>;
 }
 
 export default OrderForm;

@@ -1,25 +1,44 @@
-import { useRef } from "react";
-import NavBar from "./components/NavBar";
-import OrderForm from "./components/OrderForm";
+import { useState } from "react";
 
-function App() {
-  const orderFormRef = useRef(null);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (ref) => {
-    ref.current.scrollIntoView({ behaviour: "smooth" });
-  };
   return (
-    <div>
-      <NavBar
-        onNavigate={(section) => {
-          if (section === "orderForm") scrollToSection(orderFormRef);
-        }}
-      />
-      <div ref={orderFormRef}>
-        <OrderForm />
+    <nav className="bg-gray-800 text-white">
+      <div className="container mx-auto flex justify-between items-center p-4">
+        <a href="/" className="text-xl font-bold">
+          MyApp
+        </a>
+        <ul
+          className={`md:flex md:space-x-4 ${
+            isOpen ? "block" : "hidden"
+          } md:block`}
+        >
+          <li>
+            <a href="/" className="block hover:text-gray-300">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/about" className="block hover:text-gray-300">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact" className="block hover:text-gray-300">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-white hover:text-gray-300"
+        >
+          ☰
+        </button>
       </div>
-    </div>
+    </nav>
   );
-}
+};
 
-export default App;
+export default Navbar;
