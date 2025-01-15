@@ -1,32 +1,42 @@
+import { Link } from "react-scroll";
+import { HiMenu } from "react-icons/hi";
+import { HiX } from "react-icons/hi";
+
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 text-white">
-      <div className="container mx-auto flex justify-between items-center p-4">
-        <a href="/" className="text-xl font-bold">
-          MyApp
-        </a>
-        <ul className="hidden md:flex space-x-4">
+    <header className="flex justify-between items-center bg-tintFirstSection h-28 py-0 px-16">
+      <a className="h-9" href="#">
+        <img alt="Bakery Logo" src="img/./logo/bakery-logo.png" />
+      </a>
+      <nav className="backdrop-blur-[10px] bg-white bg-opacity-50 absolute top-0 left-0 w-full h-screen translate-x-full flex items-center justify-center transition-all duration-500 ease-in opacity-0 pointer-events-none invisible">
+        <ul className="list-none flex items-center gap-16">
           <li>
-            <a href="/" className="hover:text-gray-300">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="/about" className="hover:text-gray-300">
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="inline-block text-gray-800 font-medium text-xl transition-all duration-300 hover:text-darkOrange"
+            >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/contact" className="hover:text-gray-300">
-              Contact
-            </a>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="inline-block text-gray-800 font-medium text-xl transition-all duration-300 hover:text-darkOrange"
+            >
+              Order Now
+            </Link>
           </li>
         </ul>
-        <button className="md:hidden text-white hover:text-gray-300">
-          {/* Add hamburger menu icon here */}☰
+        <button className="border-none bg-none cursor-pointer hidden">
+          <HiMenu className="inline-block text-gray-800 font-medium text-xl transition-all duration-300 hover:text-darkOrange" />
+          <HiX className="inline-block text-gray-800 font-medium text-xl transition-all duration-300 hover:text-darkOrange" />
         </button>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
